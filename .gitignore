@@ -7,6 +7,8 @@ target/
 cat ~/.gitignore
 target/
 *.class
+*.cmd
+maven*
 
 ### STS ###
 .apt_generated
