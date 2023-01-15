@@ -1,0 +1,29 @@
+package com.biju.demo.service;
+
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.biju.demo.entity.Agent;
+import com.biju.demo.repo.AgentRepo;
+
+@Service
+
+public class AgentService {
+	
+	@Autowired
+	AgentRepo agentRepo;
+	
+	public Agent getAgent(int id) {
+		System.out.println(id);
+		Optional<Agent> agent = agentRepo.findById(id);
+		
+		if (agent.isPresent())
+		return (agent.get());
+		
+		else
+			return null;
+	}
+
+}
