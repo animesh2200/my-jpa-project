@@ -13,6 +13,11 @@ public class TravellerController {
 	@Autowired
 	TravellerService travellerService;
 	
+	
+	/**
+	 * @param id
+	 * @return
+	 */
 	@GetMapping (value="/traveller")
 	public Traveller travellerData(@RequestParam int id ) {
 		return travellerService.getTraveller(id);
