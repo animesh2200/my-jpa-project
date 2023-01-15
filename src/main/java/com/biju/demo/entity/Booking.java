@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 @Entity
 @Table(name="booking")
 public class Booking implements Serializable{
@@ -14,28 +16,48 @@ public class Booking implements Serializable{
 		
  @Id
  @Column(name="booking_no")
+ @JsonProperty(value = "booking_no")
  private int bookingNo;
 
  @Column(name="agent_code")
+ @JsonProperty(value = "agent_code")
  private int agentCode;
  
  @Column(name="amount")
+ @JsonProperty(value = "amount")
  private int amount;
  
  @Column(name="booking_date")
+ @JsonProperty(value = "booking_date")
  private String bookingDate;
  
  @Column(name="travelle_date")
+ @JsonProperty(value = "travelle_date")
  private String travelle_date;
  
  @Column(name="no_of_passenger")
+ @JsonProperty(value = "no_of_passenger")
  private int noOfPassenger;
  
  @Column(name="origin")
+ @JsonProperty(value = "origin")
  private String origin;
  
  @Column(name="destination")
+ @JsonProperty(value = "destination")
  private String destination;
+ 
+ @Column(name="customer_code")
+ @JsonProperty(value = "customer_code")
+ private int customerCode;
+
+public int getCustomerCode() {
+	return customerCode;
+}
+
+public void setCustomerCode(int customerCode) {
+	this.customerCode = customerCode;
+}
 
 public int getBookingNo() {
 	return bookingNo;
