@@ -1,6 +1,5 @@
 package com.biju.demo.controller;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,17 +14,26 @@ import com.biju.demo.service.BookingService;
 
 @RestController
 public class BookingController {
-	
+
 	@Autowired
 	BookingService bookingService;
-	@GetMapping(value="/booking")
-	private Booking bookingData (@RequestParam int id) {
+	
+	@GetMapping(value = "/booking")
+	private Booking bookingData(@RequestParam int id) {
 		return bookingService.getBooking(id);
 	}
-	
-	@RequestMapping(value="/bookingSave",method=RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_VALUE)
-	public String saveBooking (@RequestBody Booking booking) {
+
+	@RequestMapping(value = "/bookingSave", method=RequestMethod.POST,consumes=MediaType.APPLICATION_JSON_VALUE)
+	public String saveBooking(@RequestBody Booking booking) {
 		return bookingService.saveNewBooking(booking);
+	}
+
+	@RequestMapping(value = "/bookingDelete", method = RequestMethod.DELETE)
+	public int bookingDelete(@RequestParam("booking") int id) {
+		int show=bookingService.deleteBooking(id);
+		System.out.println(show);
+	return show;
+		
 	}
 
 }

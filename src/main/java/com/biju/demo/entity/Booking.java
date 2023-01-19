@@ -1,131 +1,141 @@
 package com.biju.demo.entity;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
-@Table(name="booking")
-public class Booking implements Serializable{
+@Table(name = "booking")
+public class Booking implements Serializable {
 	private static final long serialVersionUID = 1L;
-		
- @Id
- @Column(name="booking_no")
- @JsonProperty(value = "booking_no")
- private int bookingNo;
 
- @Column(name="agent_code")
- @JsonProperty(value = "agent_code")
- private int agentCode;
- 
- @Column(name="amount")
- @JsonProperty(value = "amount")
- private int amount;
- 
- @Column(name="booking_date")
- @JsonProperty(value = "booking_date")
- private String bookingDate;
- 
- @Column(name="travelle_date")
- @JsonProperty(value = "travelle_date")
- private String travelle_date;
- 
- @Column(name="no_of_passenger")
- @JsonProperty(value = "no_of_passenger")
- private int noOfPassenger;
- 
- @Column(name="origin")
- @JsonProperty(value = "origin")
- private String origin;
- 
- @Column(name="destination")
- @JsonProperty(value = "destination")
- private String destination;
- 
- @Column(name="customer_code")
- @JsonProperty(value = "customer_code")
- private int customerCode;
+	@Id
+	@Column(name = "booking_no")
+	@JsonProperty(value = "booking_no")
+	private int bookingNo;
 
-public int getCustomerCode() {
-	return customerCode;
-}
+	@Column(name = "agent_code")
+	@JsonProperty(value = "agent_code")
+	private int agentCode;
 
-public void setCustomerCode(int customerCode) {
-	this.customerCode = customerCode;
-}
+	@Column(name = "amount")
+	@JsonProperty(value = "amount")
+	private int amount;
 
-public int getBookingNo() {
-	return bookingNo;
-}
+	@Column(name = "booking_date")
+	@JsonProperty(value = "booking_date")
+	private String bookingDate;
 
-public void setBookingNo(int bookingNo) {
-	this.bookingNo = bookingNo;
-}
+	@Column(name = "travelle_date")
+	@JsonProperty(value = "travelle_date")
+	private String travelle_date;
 
-public int getAgentCode() {
-	return agentCode;
-}
+	@Column(name = "no_of_passenger")
+	@JsonProperty(value = "no_of_passenger")
+	private int noOfPassenger;
 
-public void setAgentCode(int agentCode) {
-	this.agentCode = agentCode;
-}
+	@Column(name = "origin")
+	@JsonProperty(value = "origin")
+	private String origin;
 
-public int getAmount() {
-	return amount;
-}
+	@Column(name = "destination")
+	@JsonProperty(value = "destination")
+	private String destination;
 
-public void setAmount(int amount) {
-	this.amount = amount;
-}
+	@Column(name = "customer_code")
+	@JsonProperty(value = "customer_code")
+	private int customerCode;
 
-public String getBookingDate() {
-	return bookingDate;
-}
+	@ManyToOne
+	@JoinColumn(name = "customer_code", nullable = false, insertable = false, updatable = false)
+	private Traveller traveller;
+	@ManyToOne
+	@JoinColumn(name = "agent_code", nullable = false, insertable = false, updatable = false)
+	private Agent agent;
 
-public void setBookingDate(String bookingDate) {
-	this.bookingDate = bookingDate;
-}
+	public int getCustomerCode() {
+		return customerCode;
+	}
 
-public String getTravelle_date() {
-	return travelle_date;
-}
+	public void setCustomerCode(int customerCode) {
+		this.customerCode = customerCode;
+	}
 
-public void setTravelle_date(String travelle_date) {
-	this.travelle_date = travelle_date;
-}
+	public int getBookingNo() {
+		return bookingNo;
+	}
 
-public int getNoOfPassenger() {
-	return noOfPassenger;
-}
+	public void setBookingNo(int bookingNo) {
+		this.bookingNo = bookingNo;
+	}
 
-public void setNoOfPassenger(int noOfPassenger) {
-	this.noOfPassenger = noOfPassenger;
-}
+	public int getAgentCode() {
+		return agentCode;
+	}
 
-public String getOrigin() {
-	return origin;
-}
+	public void setAgentCode(int agentCode) {
+		this.agentCode = agentCode;
+	}
 
-public void setOrigin(String origin) {
-	this.origin = origin;
-}
+	public int getAmount() {
+		return amount;
+	}
 
-public String getDestination() {
-	return destination;
-}
+	public void setAmount(int amount) {
+		this.amount = amount;
+	}
 
-public void setDestination(String destination) {
-	this.destination = destination;
-}
+	public String getBookingDate() {
+		return bookingDate;
+	}
 
-public static long getSerialversionuid() {
-	return serialVersionUID;
-}
- 
+	public void setBookingDate(String bookingDate) {
+		this.bookingDate = bookingDate;
+	}
+
+	public String getTravelle_date() {
+		return travelle_date;
+	}
+
+	public void setTravelle_date(String travelle_date) {
+		this.travelle_date = travelle_date;
+	}
+
+	public int getNoOfPassenger() {
+		return noOfPassenger;
+	}
+
+	public void setNoOfPassenger(int noOfPassenger) {
+		this.noOfPassenger = noOfPassenger;
+	}
+
+	public String getOrigin() {
+		return origin;
+	}
+
+	public void setOrigin(String origin) {
+		this.origin = origin;
+	}
+
+	public String getDestination() {
+		return destination;
+	}
+
+	public void setDestination(String destination) {
+		this.destination = destination;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 
 }
