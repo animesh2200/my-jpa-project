@@ -24,7 +24,7 @@ public class BookingService {
 	}
 
 	public String saveNewBooking(Booking booking) {
-		String msg = "Booking Save Success";
+		String msg = "Booking Saved Successfulley";
 
 		try {
 
@@ -35,5 +35,16 @@ public class BookingService {
 			msg = "Failed";
 		}
 		return msg;
+	}
+
+	public int deleteBooking(int id) {
+		try
+		{
+		bookingRepo.deleteById(id);
+		return 1;
+		}
+		catch (Exception e) {
+		return 0;}
+		
 	}
 }
