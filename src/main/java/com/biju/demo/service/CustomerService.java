@@ -20,10 +20,11 @@ public class CustomerService {
 
 		Optional<Customer> customer = customerRepo.findById(id);
 
-		if (customer.isPresent())
+		if (customer.isPresent()) {
 			return customer.get();
-		else
+		} else {
 			return null;
+		}
 	}
 
 	public String saveCustomer(Customer customer) {

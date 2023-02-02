@@ -50,7 +50,7 @@ public class Traveller implements Serializable {
 	@JsonProperty(value = "agent_code")
 	private int agentCode;
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "customerCode")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "customerCode")
 	private List<Booking> bookings;
 
 	public int getCustomerCode() {

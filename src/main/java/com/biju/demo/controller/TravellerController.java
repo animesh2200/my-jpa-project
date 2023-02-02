@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.biju.demo.entity.Traveller;
 import com.biju.demo.model.TravellerBO;
 import com.biju.demo.model.TravellerBO2;
-import com.biju.demo.repo.TravellerRepo;
 import com.biju.demo.service.TravellerService;
 
 @RestController

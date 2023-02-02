@@ -9,7 +9,6 @@ import com.biju.demo.entity.Agent;
 import com.biju.demo.repo.AgentRepo;
 
 @Service
-
 public class AgentService {
 
 	@Autowired

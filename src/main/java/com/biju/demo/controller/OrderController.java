@@ -31,7 +31,7 @@ public class OrderController {
 	}
 
 	@RequestMapping(value = "/deleteOrder", method = RequestMethod.DELETE)
-	public void deleteOrder(@RequestParam("orderId") int orderId) {
+	public void deleteOrder(@RequestParam int orderId) {
 		orderService.deleteOrderById(orderId);
 	}
 

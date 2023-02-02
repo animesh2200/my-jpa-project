@@ -7,5 +7,5 @@ import com.biju.demo.entity.Agent;
 
 @Repository
 public interface AgentRepo extends JpaRepository<Agent, Integer> {
-
+	
 }
