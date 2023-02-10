@@ -22,7 +22,7 @@ public class BookingController {
 	BookingService bookingService;
 	
 	@GetMapping(value = "/booking")
-	private Booking bookingData(@RequestParam int id) {
+	public Booking bookingData(@RequestParam int id) {
 		Booking booking2 = bookingService.getBooking(id);
 		return booking2;
 	}
